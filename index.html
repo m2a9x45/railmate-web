@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Train_Austria.svg/768px-Train_Austria.svg.png" type="image/x-icon">
+    <title>Railmate</title>
+</head>
+<body>
+    <main>
+
+        <div class="mainheader">
+            <h1>Railmate</h1>
+            <h2>Train travel made simple.</h2>
+            <button id="getButton">Get it now</button>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item"  id="img-1">
+                <img id="searchImg" src="./img/Search.png" alt="" width="100%">
+            </div>
+            <div class="grid-item" id="text-1">
+                <h2>Search 🔎</h2>
+                <p>
+                    Use Railmate to find trains leaving from all UK railway stations. From London Kings Cross 
+                    to Edinburgh Waverley, Aberdeen to Glassgow and Manchester to Paddington. Find them all
+                    using our great search.
+                </p>
+                <!-- <button id="moreButton">Learn more</button> -->
+            </div>
+
+            <div class="grid-item" id="text-2">
+                <h2>Depatures 🚊</h2>
+                <p>
+                    We show you the next 2 hours of live depatures. Including the platform, 
+                    destation, train company and of course the time the train leaves. So you'll 
+                    never miss another train! 
+                </p>
+                <!-- <button id="moreButton">Learn more</button> -->
+            </div>
+            <div class="grid-item" id="img-2">
+                <img id="searchImg" src="./img/Dep.png" alt="" width="100%">
+            </div>
+
+            <div class="grid-item" id="img-3">
+                <img id="searchImg" src="./img/Details.png" alt="" width="100%">
+            </div>
+            <div class="grid-item" id="text-3">
+                <h2>Details 💡</h2>
+                <p>
+                    Railmate lets you see individue train routes. So you can see all the stops
+                    your train will make on it's way. Details shows you the estimated arrival time, platform
+                    and status. So you'll allways know when you'll arrive.
+                </p>
+                <!-- <button id="moreButton">Learn more</button> -->
+            </div>  
+        </div>
+
+        <div class="content">
+            <h2 id="formheader">Get it on Android</h2>
+            <h3 id="formtitle">Help us build the type of app you'd want to use 🙌</h3>
+            <form>
+                <input id="name" type="text" placeholder="first name" name="firstName"><br>
+                <input id="email" type="text" placeholder="youremail@email.com" name="emailAddress"><br>
+
+                <!-- <label for="os">Are you using andriod or ios?</label><br> -->
+                <!-- <div class="selection">
+                    <input id="android" type="radio" name="os" value="android">android
+                    <input id="ios" type="radio" name="os" value="Ios">Ios<br>
+                </div> -->
+                
+                <button id="submitButton" type="submit">Get</button> <br> <br>
+                <a href="./ios/">What about ios</a>
+            </form>
+                
+
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

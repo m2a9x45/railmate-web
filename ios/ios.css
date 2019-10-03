@@ -1,0 +1,39 @@
+body {
+    margin: 0px;
+    background-color: #fafafa;
+    font-family: 'Roboto', sans-serif; 
+}
+
+.mainheader {
+    text-align: center;
+    /* padding-top: 15%; */
+    padding-bottom: 5%;
+    font-weight: 200;
+    background-color: #6b2020;
+    /* height: 40vh; */
+}
+
+.mainheader h1, .mainheader h2 {
+    
+    color: #f2f2f2;
+}
+
+.mainheader h1 {
+    font-weight: 400;
+    font-size: 36pt;
+    margin-top: 0;
+    padding-top: 5%;
+}
+
+.mainheader h2 {
+    font-weight: 300;
+    font-size: 24pt;
+    
+}
+
+.content {
+    width: 70%;
+    margin: 2% auto 0% auto;
+    text-align: center;
+    padding-bottom: 5%;
+}
