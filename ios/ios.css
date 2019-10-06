@@ -37,3 +37,7 @@ body {
     text-align: center;
     padding-bottom: 5%;
 }
+
+.content p {
+    font-size: 16pt;
+}

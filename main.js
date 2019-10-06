@@ -1,6 +1,7 @@
 const submitButton = document.querySelector('#submitButton');
 const getButton = document.querySelector('#getButton');
 const moreButton = document.querySelectorAll('#moreButton');
+const errorText = document.querySelector('#errorText');
 
 moreButton.forEach(button => {
     button.addEventListener('click', () => {
@@ -20,9 +21,16 @@ submitButton.addEventListener("click",() => {
         "email": email,
         "os": "android"
     }
-    console.log(data);
     
-    sendData(data); 
+
+    if (name == "" || email == "") {
+        showError("Oops 😔 You need to enter your name and email address");
+    } else {
+        console.log(data);
+        sendData(data); 
+    }
+
+    
 });
 
 getButton.addEventListener('click', () => {
@@ -31,7 +39,7 @@ getButton.addEventListener('click', () => {
 
 function sendData(data){
 
-    const url = "http://localhost:3001/interest";
+    const url = "http://localhost:3000/user/interest";
 
     fetch(url, {
         method: 'POST',
@@ -45,12 +53,20 @@ function sendData(data){
         console.log(data);
         if (data.error != true) {
             console.log("Everthing worked");
-            window.location = `http://localhost/dev/railmate/get/?os=${data.os}&id=${data._id}`;
+            window.location = `http://localhost/dev/railmate/get/?os=${data.os}&id=${data.id}`;
                    
         } else {
             console.log("oops something went wrong");
+            console.log(data);
+            showError(data.message);
             
         }
     })
     .catch(error => console.error(error));        
 };
+
+function showError(error){
+    errorText.innerText = error;
+    errorText.setAttribute("style", "color:red;")
+    setTimeout(() => { errorText.setAttribute("style", "color:black;"); }, 500);
+}
