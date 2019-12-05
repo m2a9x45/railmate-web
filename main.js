@@ -3,11 +3,15 @@ const getButton = document.querySelector('#getButton');
 const moreButton = document.querySelectorAll('#moreButton');
 const errorText = document.querySelector('#errorText');
 
-moreButton.forEach(button => {
-    button.addEventListener('click', () => {
-        window.location.href = "http://localhost/dev/railmate/learnmore";
-    })
-});
+//https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling
+//https://stackoverflow.com/questions/9860630/javascript-smooth-scroll-ipad
+const API_URL = "http://railmate.net";
+
+// moreButton.forEach(button => {
+//     button.addEventListener('click', () => {
+//         window.location.href = "http://localhost/dev/railmate/learnmore";
+//     })
+// });
 
 submitButton.addEventListener("click",() => {
     event.preventDefault()
@@ -39,7 +43,7 @@ getButton.addEventListener('click', () => {
 
 function sendData(data){
 
-    const url = "http://localhost:3000/user/interest";
+    const url = `${API_URL}:3060/user/interest`;
 
     fetch(url, {
         method: 'POST',
@@ -53,13 +57,12 @@ function sendData(data){
         console.log(data);
         if (data.error != true) {
             console.log("Everthing worked");
-            window.location = `http://localhost/dev/railmate/get/?os=${data.os}&id=${data.id}`;
+            window.location = `http://railmate.net/get/?os=${data.os}&id=${data.id}`;
                    
         } else {
             console.log("oops something went wrong");
             console.log(data);
             showError(data.message);
-            
         }
     })
     .catch(error => console.error(error));        

@@ -5,8 +5,8 @@ window.addEventListener("load", () => {
 
     const {os, id} = getUrlParams();
     if (os == null || id == null) {
-        console.log("nullllll");
-        window.location = "http://localhost/dev/railmate/";
+        console.log("null");
+        window.location = "http://railmate.net/";
     }
 });
 
@@ -14,7 +14,7 @@ downloadButton.addEventListener("click", () => {
 
     const {os, id} = getUrlParams();
     console.log(os, id);
-    window.open(`http://localhost:3000/user/interest/download/${os}/${id}`, "_self");
+    window.open(`http://railmate.net:3060/user/interest/download/${os}/${id}`, "_self");
 });
 
 function getUrlParams(){

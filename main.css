@@ -177,6 +177,10 @@ footer {
     font-size: 16pt;
 }
 
+footer a {
+    margin: 0 2% 0 2%;
+}
+
 #contact {
     color: white;
     text-decoration: none;
