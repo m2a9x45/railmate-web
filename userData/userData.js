@@ -1,34 +1,18 @@
 const submitButton = document.querySelector('#submitButton');
-const getButton = document.querySelector('#getButton');
-const moreButton = document.querySelectorAll('#moreButton');
-const errorText = document.querySelector('#errorText');
-
-//https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling
-//https://stackoverflow.com/questions/9860630/javascript-smooth-scroll-ipad
 const API_URL = "http://railmate.net";
-
-// moreButton.forEach(button => {
-//     button.addEventListener('click', () => {
-//         window.location.href = "http://localhost/dev/railmate/learnmore";
-//     })
-// });
 
 submitButton.addEventListener("click",() => {
     event.preventDefault()
     
-    const name = document.querySelector('#name').value;
     const email = document.querySelector('#email').value;
     // const os = document.querySelector('input[name="os"]:checked').value;
 
     const data = {
-        "name" : name,
-        "email": email,
-        "os": "android"
+        "email": email
     }
     
-
-    if (name == "" || email == "") {
-        showError("Oops 😔 You need to enter your name and email address");
+    if (email == "") {
+        showError("Oops 😔 You need to enter your email address");
     } else {
         console.log(data);
         sendData(data); 
@@ -37,13 +21,9 @@ submitButton.addEventListener("click",() => {
     
 });
 
-getButton.addEventListener('click', () => {
-    submitButton.scrollIntoView({block: 'start', behavior: 'smooth'});
-});
-
 function sendData(data){
 
-    const url = `${API_URL}:3060/user/interest`;
+    const url = `${API_URL}:3060/user/sar`;
 
     fetch(url, {
         method: 'POST',
@@ -57,7 +37,7 @@ function sendData(data){
         console.log(data);
         if (data.error != true) {
             console.log("Everthing worked");
-            window.location = `http://${API_URL}/get/?os=${data.os}&id=${data.id}`;
+            // window.location = `http://${API_URL}/get/?os=${data.os}&id=${data.id}`;
                    
         } else {
             console.log("oops something went wrong");
@@ -67,6 +47,7 @@ function sendData(data){
     })
     .catch(error => console.error(error));        
 };
+
 
 function showError(error){
     errorText.innerText = error;
