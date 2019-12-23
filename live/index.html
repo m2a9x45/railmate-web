@@ -11,7 +11,6 @@
     <title>Railmate</title>
 </head>
 <body> 
-
     <header>
         <nav class="navbar">
             <ul class="navbarList">
@@ -21,13 +20,18 @@
             </ul>
         </nav>
     </header>
-
-        <select id="stationList">
-
-        </select>
-
-        <button id="submitButton">Go</button>
-
+    <main>
+        <div class="content">
+            <div id="search">
+                <input type="text" id="stationSearch" placeholder="Search for a station">
+            </div>
+            
+    
+            <ul id="stations">
+    
+            </ul>
+        </div>
+        
         <table style="width:100%" >
             <tbody>
                 <tr>
@@ -42,8 +46,7 @@
             </tbody>
             
         </table>
-
-
-        <script src="live.js"></script>
+    </main>
+    <script src="live.js"></script>
 </body>
 </html>
