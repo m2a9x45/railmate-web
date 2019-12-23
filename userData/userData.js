@@ -12,7 +12,7 @@ submitButton.addEventListener("click",() => {
     }
     
     if (email == "") {
-        showError("Oops 😔 You need to enter your email address");
+        showError("Oops 😔 You need to enter your email address", "Red");
     } else {
         console.log(data);
         sendData(data); 
@@ -37,20 +37,20 @@ function sendData(data){
         console.log(data);
         if (data.error != true) {
             console.log("Everthing worked");
-            // window.location = `http://${API_URL}/get/?os=${data.os}&id=${data.id}`;
-                   
+            showError(data.message, "green");
+            setTimeout(() => {window.location = `${API_URL}`;}, 3500)
         } else {
             console.log("oops something went wrong");
             console.log(data);
-            showError(data.message);
+            showError(data.message, "red");
         }
     })
     .catch(error => console.error(error));        
 };
 
 
-function showError(error){
-    errorText.innerText = error;
-    errorText.setAttribute("style", "color:red;")
+function showError(message, colour){
+    errorText.innerText = message;
+    errorText.setAttribute("style", `color:${colour};`)
     setTimeout(() => { errorText.setAttribute("style", "color:black;"); }, 500);
 }
