@@ -58,7 +58,8 @@ function addToStations (Station_Name, CRS_Code) {
         event.preventDefault();
         let target = e.target;
         console.log(e.srcElement.attributes[1].value);
-        getLiveDep(e.srcElement.attributes[1].value)
+        getLiveDep(e.srcElement.attributes[1].value);
+        stations.innerHTML = "";
         
     });
     // li.setAttribute("value", CRS_Code);
