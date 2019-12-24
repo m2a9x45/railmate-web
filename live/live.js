@@ -17,6 +17,8 @@ stationSearch.addEventListener("input", () => {
             console.log(staionData[i].Station_Name, staionData[i].CRS_Code);
             
             addToStations(staionData[i].Station_Name, staionData[i].CRS_Code);
+        } else {
+            console.log("No match",staionData[i].Station_Name, staionData[i].CRS_Code);
         }
     }  
 })
@@ -40,16 +42,16 @@ function addToStations (Station_Name, CRS_Code) {
     let li = document.createElement("li");
     let a = document.createElement("a");
     a.innerText = Station_Name;
-    // a.setAttribute("href", CRS_Code)
-    // a.setAttribute("value", CRS_Code)
-    // a.addEventListener("click", (event) => {
-    //     event.preventDefault(event);
-    //     let target = event.target;
-    //     console.log(event.srcElement.attributes[1].value);
-    //     getLiveDep(event.srcElement.attributes[1].value);
-    //     stations.innerHTML = "";
+    a.setAttribute("href", CRS_Code)
+    a.setAttribute("value", CRS_Code)
+    a.addEventListener("click", (event) => {
+        event.preventDefault(event);
+        let target = event.target;
+        console.log(event.srcElement.attributes[1].value);
+        getLiveDep(event.srcElement.attributes[1].value);
+        stations.innerHTML = "";
         
-    // });
+    });
     // li.setAttribute("value", CRS_Code);
 
     li.appendChild(a);
