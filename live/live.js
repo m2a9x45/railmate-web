@@ -35,21 +35,6 @@ fetch(`${API_URL}:3060/app/stations`)
         console.log(err); 
     });
 
-// submitButton.addEventListener("click", () => {
-//     var CRS_Code = stationList.options[stationList.selectedIndex].value;
-//     console.log(CRS_Code);
-
-//     getLiveDep(CRS_Code);
-
-// });
-
-function addToList (Station_Name, CRS_Code) {
-    let option = document.createElement("option");
-    option.value = CRS_Code;
-    option.text = Station_Name;
-    stationList.appendChild(option);
-}
-
 function addToStations (Station_Name, CRS_Code) {
     let li = document.createElement("li");
     let a = document.createElement("a");
@@ -61,7 +46,7 @@ function addToStations (Station_Name, CRS_Code) {
         let target = event.target;
         console.log(event.srcElement.attributes[1].value);
         getLiveDep(event.srcElement.attributes[1].value);
-        stations.innerHTML = "";
+        // stations.innerHTML = "";
         
     });
     // li.setAttribute("value", CRS_Code);
