@@ -4,7 +4,7 @@ const deptable = document.querySelector('#deptable');
 const stationSearch = document.querySelector('#stationSearch');
 const stations = document.querySelector('#stations');
 
-const API_URL = 'http://localhost';
+const API_URL = 'http://railmate.net';
 
 let staionData = [];
 
@@ -54,11 +54,11 @@ function addToStations (Station_Name, CRS_Code) {
     a.innerText = Station_Name;
     a.setAttribute("href", CRS_Code)
     a.setAttribute("value", CRS_Code)
-    a.addEventListener("click", (e) => {
-        event.preventDefault();
-        let target = e.target;
-        console.log(e.srcElement.attributes[1].value);
-        getLiveDep(e.srcElement.attributes[1].value);
+    a.addEventListener("click", (event) => {
+        event.preventDefault(event);
+        let target = event.target;
+        console.log(event.srcElement.attributes[1].value);
+        getLiveDep(event.srcElement.attributes[1].value);
         stations.innerHTML = "";
         
     });
