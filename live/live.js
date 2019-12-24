@@ -11,6 +11,7 @@ let staionData = [];
 stationSearch.addEventListener("input", () => {
     console.log(stationSearch.value);
     stations.innerHTML = "";
+    console.log(staionData);
     for (let i = 0; i < staionData.length; i++) {
         if (staionData[i].Station_Name.toLowerCase().includes(stationSearch.value)) {
             console.log(staionData[i].Station_Name, staionData[i].CRS_Code);
