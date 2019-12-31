@@ -79,3 +79,9 @@ nav ul li:first-child {
 .content p {
     font-size: 16pt;
 }
+
+@media only screen and (max-width: 500px) {
+    .navbar {
+        width: 100%;
+    }
+}

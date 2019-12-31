@@ -14,7 +14,7 @@ downloadButton.addEventListener("click", () => {
 
     const {os, id} = getUrlParams();
     console.log(os, id);
-    window.open(`http://railmate.net:3060/user/interest/download/${os}/${id}`, "_self");
+    window.open(`http://api.railmate.net/user/interest/download/${os}/${id}`, "_self");
 });
 
 function getUrlParams(){
