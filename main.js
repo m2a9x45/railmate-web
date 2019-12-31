@@ -5,7 +5,7 @@ const errorText = document.querySelector('#errorText');
 
 //https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling
 //https://stackoverflow.com/questions/9860630/javascript-smooth-scroll-ipad
-const API_URL = "http://railmate.net";
+const API_URL = "http://api.railmate.net";
 
 // moreButton.forEach(button => {
 //     button.addEventListener('click', () => {

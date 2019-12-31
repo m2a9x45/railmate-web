@@ -6,9 +6,11 @@ const stationSearch = document.querySelector('#stationSearch');
 const stations = document.querySelector('#stations');
 const errorMessage = document.querySelector('#errorMessage');
 
-const API_URL = 'http://railmate.net';
+const API_URL = 'http://api.railmate.net';
 
 let staionData = [];
+
+
 
 stationSearch.addEventListener("input", () => {
     errorMessage.style.display = "none";
@@ -22,7 +24,7 @@ stationSearch.addEventListener("input", () => {
     }  
 })
 
-fetch(`${API_URL}:3060/app/stations`)
+fetch(`${API_URL}/app/stations`)
     .then(response => response.json())
     .then((data) => {
         console.log(data);
@@ -61,7 +63,7 @@ function addToStations (Station_Name, CRS_Code) {
 }
 
 function getLiveDep (CRS_Code) {
-    fetch(`${API_URL}:3060/app/livedepatures/${CRS_Code}`)
+    fetch(`${API_URL}/app/livedepatures/${CRS_Code}`)
     .then(response => response.json())
     .then((data) => {
         console.log(data);

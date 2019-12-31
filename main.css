@@ -283,4 +283,7 @@ footer a {
     form {
         width: 90%;
     }
+    .navbar {
+        width: 100%;
+    }
 }

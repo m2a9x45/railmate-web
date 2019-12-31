@@ -52,8 +52,7 @@ nav ul li:first-child {
 }
 
 #stationSearch {
-    width: 100%;
-    /* max-width: 370px; */
+    width: 90%;
     padding: 12px 20px;
     margin: 2% auto;
     font-size: 16pt;
@@ -104,4 +103,20 @@ tr:hover {background-color: #ddd;}
 
 #errorMessage {
     text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar {
+        width: 100%;
+    }
+    .content {
+        width: 100%;
+    }
+    #search {
+        width: 95%;
+    }
+    #stationSearch {
+        width: 100%;
+        padding: 0px;
+    }
 }

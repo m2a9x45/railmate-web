@@ -1,5 +1,5 @@
 const submitButton = document.querySelector('#submitButton');
-const API_URL = "http://railmate.net";
+const API_URL = "http://api.railmate.net";
 
 submitButton.addEventListener("click",() => {
     event.preventDefault()
@@ -23,7 +23,7 @@ submitButton.addEventListener("click",() => {
 
 function sendData(data){
 
-    const url = `${API_URL}:3060/user/sar`;
+    const url = `${API_URL}/user/sar`;
 
     fetch(url, {
         method: 'POST',
@@ -38,7 +38,7 @@ function sendData(data){
         if (data.error != true) {
             console.log("Everthing worked");
             showError(data.message, "green");
-            setTimeout(() => {window.location = `${API_URL}`;}, 3500)
+            setTimeout(() => {window.location = "railmate.net";}, 3500)
         } else {
             console.log("oops something went wrong");
             console.log(data);
