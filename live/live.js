@@ -6,11 +6,10 @@ const stationSearch = document.querySelector('#stationSearch');
 const stations = document.querySelector('#stations');
 const errorMessage = document.querySelector('#errorMessage');
 
+
 const API_URL = 'http://api.railmate.net';
 
 let staionData = [];
-
-
 
 stationSearch.addEventListener("input", () => {
     errorMessage.style.display = "none";
