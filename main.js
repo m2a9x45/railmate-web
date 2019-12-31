@@ -57,7 +57,7 @@ function sendData(data){
         console.log(data);
         if (data.error != true) {
             console.log("Everthing worked");
-            window.location = `http://railmate.net/get/?os=${data.os}&id=${data.id}`;
+            window.location = `http://${API_URL}/get/?os=${data.os}&id=${data.id}`;
                    
         } else {
             console.log("oops something went wrong");

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="userData.css">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Train_Austria.svg/768px-Train_Austria.svg.png" type="image/x-icon">
+
+    <title>Railmate</title>
+</head>
+<body>
+    <main>
+        <header>
+            <nav class="navbar">
+                <ul class="navbarList">
+                    <li id="navbarItem"><a href="../" >Railmate</a></li>
+                    <li id="navbarItem"><a href="https://twitter.com/Railmate_">Contact</a></li>
+                    <li id="navbarItem"><a href="../live/">Web live</a></li> 
+                </ul>
+            </nav>
+        </header>
+        <div class="mainheader">
+            <h1>Railmate GDPR</h1>
+            <h2>Subject access request (SAR)</h2>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-item" id="text-1">
+                <h2>What we'll give to you</h2>
+                <p>
+                    The first thing we'll give back to you is, wether or not we are storing any of your personal data. If we are we'll send you the following : 
+                    <ul>
+                        <li>What we use the information for</li>
+                        <li>Who we share you're data with</li>
+                        <li>How long we store your information and how we decide that</li>
+                        <li>That you have the right to make us change or stop using your data</li>
+                        <li>That you can complain to the Information Commissioner's Office <a href="https://ico.org.uk/">ico</a></li>
+                        <li>Where we got your data from</li>
+                        <li>What sort of profiling or automatic decison making we're doing and how we are doing it</li>
+                        <li>The security meassure we'd take in transfering your data to a third country or international organsation</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 id="formheader">Submit a SAR</h2>
+            <h3 id="formtitle">We'll responded within 30 days from when we recive the SAR</h3>
+            <form>
+                <input id="email" type="text" placeholder="youremail@email.com" name="emailAddress"><br>
+                
+                <button id="submitButton" type="submit">Submit</button> <br> <br>
+                <p id="errorText"></p>
+            </form>
+        </div>
+    </main>
+    <script src="userData.js"></script>
+</body>
+</html>
