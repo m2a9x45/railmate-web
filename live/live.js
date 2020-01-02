@@ -25,7 +25,7 @@ stationSearch.addEventListener("input", () => {
     }  
 })
 
-back.addEventListener("input", () => {
+back.addEventListener("click", () => {
     route.innerHTML = "";
     deptableheadings.style.visibility = "visible";
     deptable.style.visibility = "visible";
@@ -100,9 +100,12 @@ function addToTable (Des,Platform, Operator, DepTime, url){
 
     let tr = document.createElement('tr');
     tr.setAttribute("value", url);
-    tr.addEventListener("input", (e) => {
+    tr.addEventListener("click", (e) => {
         console.log(e);
         console.log(e.path[1].attributes[0].value);
+        getTrainRoute(e.path[1].attributes[0].value);
+    })
+    tr.addEventListener("touchstart", (e) => {
         getTrainRoute(e.path[1].attributes[0].value);
     })
 
