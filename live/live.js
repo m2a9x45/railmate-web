@@ -100,7 +100,7 @@ function addToTable (Des,Platform, Operator, DepTime, url){
 
     let tr = document.createElement('tr');
     tr.setAttribute("value", url);
-    tr.addEventListener("click", (e) => {
+    tr.addEventListener("input", (e) => {
         console.log(e);
         console.log(e.path[1].attributes[0].value);
         getTrainRoute(e.path[1].attributes[0].value);
