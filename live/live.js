@@ -25,7 +25,7 @@ stationSearch.addEventListener("input", () => {
     }  
 })
 
-back.addEventListener("click", () => {
+back.addEventListener("input", () => {
     route.innerHTML = "";
     deptableheadings.style.visibility = "visible";
     deptable.style.visibility = "visible";
