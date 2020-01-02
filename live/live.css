@@ -105,6 +105,47 @@ tr:hover {background-color: #ddd;}
     text-align: center;
 }
 
+#route {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.nameTime {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14pt;
+}
+
+.platStat {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14pt;
+}
+
+#name{
+    display: inline;
+    margin: 0px;
+}
+
+#time{
+    display: inline;
+    margin: 0px;
+}
+
+#plat{
+    display: inline;
+    margin: 0px;
+}
+
+#stat{
+    display: inline;
+    margin: 0px;
+}
+
+.routeElement {
+    padding: 1% 0%;
+}
+
 @media only screen and (max-width: 500px) {
     .navbar {
         width: 100%;
@@ -118,6 +159,9 @@ tr:hover {background-color: #ddd;}
     #stationSearch {
         width: 100%;
         padding: 0px;
+    }
+    #route {
+        width: 95%;
     }
 }
 

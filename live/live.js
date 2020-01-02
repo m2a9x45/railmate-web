@@ -5,6 +5,8 @@ const deptableheadings = document.querySelector('#deptableheadings');
 const stationSearch = document.querySelector('#stationSearch');
 const stations = document.querySelector('#stations');
 const errorMessage = document.querySelector('#errorMessage');
+const route = document.querySelector('#route');
+const back = document.querySelector('#back');
 
 
 const API_URL = 'http://api.railmate.net';
@@ -23,6 +25,13 @@ stationSearch.addEventListener("input", () => {
     }  
 })
 
+back.addEventListener("click", () => {
+    route.innerHTML = "";
+    deptableheadings.style.visibility = "visible";
+    deptable.style.visibility = "visible";
+    back.style.visibility = "collapse";
+})
+
 fetch(`${API_URL}/app/stations`)
     .then(response => response.json())
     .then((data) => {
@@ -36,7 +45,7 @@ fetch(`${API_URL}/app/stations`)
     })
     .catch((err) => {
         console.log(err); 
-    });
+});
 
 function addToStations (Station_Name, CRS_Code) {
     let li = document.createElement("li");
@@ -90,8 +99,11 @@ function getLiveDep (CRS_Code) {
 function addToTable (Des,Platform, Operator, DepTime, url){
 
     let tr = document.createElement('tr');
-    tr.addEventListener("click", () => {
-        console.log("clicked");
+    tr.setAttribute("value", url);
+    tr.addEventListener("click", (e) => {
+        console.log(e);
+        console.log(e.path[1].attributes[0].value);
+        getTrainRoute(e.path[1].attributes[0].value);
     })
 
     let tdDes = document.createElement('td');
@@ -109,5 +121,68 @@ function addToTable (Des,Platform, Operator, DepTime, url){
     tr.appendChild(tdDepTime);
 
     deptable.appendChild(tr);
+
+}
+
+function getTrainRoute(url) {
+    fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        deptableheadings.style.visibility = "collapse";
+        deptable.style.visibility = "collapse";
+        back.style.visibility = "visible";
+        for (let i = 0; i < data.stops.length; i++) {
+            addRouteToPage(data.stops[i].station_name, data.stops[i].platform, data.stops[i].aimed_arrival_time, data.stops[i].status);
+        }
+    })
+    .catch((err) => {
+        console.log(err); 
+});
+}
+
+function addRouteToPage(stationName, Platform, DepTime, Status) {
+
+    if (Platform == null) {
+        Platform = "TBC";
+    }
+
+    let name = document.createElement("p");
+    name.setAttribute("id", "name");
+    name.innerText = stationName;
+    
+    let time = document.createElement("p");
+    time.setAttribute("id", "time");
+    time.innerText = DepTime;
+
+    let nameTime = document.createElement("div");
+    nameTime.setAttribute("class", "nameTime");
+
+    nameTime.appendChild(name);
+    nameTime.appendChild(time);
+
+    let plat = document.createElement("p");
+    plat.setAttribute("id", "plat");
+    plat.innerText = `Platform ${Platform}`;
+
+    let stat = document.createElement("p");
+    stat.setAttribute("id", "stat");
+    stat.innerText = Status.toLowerCase();
+
+    let platstat = document.createElement("div");
+    platstat.setAttribute("class", "platStat");
+
+    platstat.appendChild(plat);
+    platstat.appendChild(stat);
+
+    
+    let div = document.createElement("div");
+    div.setAttribute("class", "routeElement");
+
+    div.appendChild(nameTime);
+    div.appendChild(platstat);
+
+    route.appendChild(div);
+
 
 }
