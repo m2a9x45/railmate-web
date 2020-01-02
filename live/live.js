@@ -107,6 +107,9 @@ function addToTable (Des,Platform, Operator, DepTime, url){
     })
     tr.addEventListener("touchstart", (e) => {
         let path = e.composedPath();
+        console.log(e.composedPath());
+        console.log(e.composedPath()[1].value);
+        
         console.log(path[1].value);
         getTrainRoute(path[1].value);
         
