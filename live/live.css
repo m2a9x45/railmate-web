@@ -157,10 +157,11 @@ tr:hover {background-color: #ddd;}
 }
 
 #back {
-    margin-top: 0.5em;
+    /* margin-top: 4%; */
+    width: 100%;
     background-color: #e65e5e; /* Green */
     border: none;
-    padding: 15px 32px;
+    padding: 10px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
