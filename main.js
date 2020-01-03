@@ -1,5 +1,6 @@
 const submitButton = document.querySelector('#submitButton');
 const getButton = document.querySelector('#getButton');
+const webButton = document.querySelector('#webButton');
 const moreButton = document.querySelectorAll('#moreButton');
 const errorText = document.querySelector('#errorText');
 
@@ -12,6 +13,10 @@ const API_URL = "http://api.railmate.net";
 //         window.location.href = "http://localhost/dev/railmate/learnmore";
 //     })
 // });
+
+webButton.addEventListener("click", () => {
+    window.location.href = "./live"
+})
 
 submitButton.addEventListener("click",() => {
     event.preventDefault()
