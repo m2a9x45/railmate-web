@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,22 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="live.css">
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Train_Austria.svg/768px-Train_Austria.svg.png" type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Train_Austria.svg/768px-Train_Austria.svg.png"
+        type="image/x-icon">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> -->
     <title>Railmate</title>
 </head>
-<body> 
+
+<body>
     <header>
         <nav class="navbar">
             <ul class="navbarList">
-                <li id="navbarItem"><a href="../" >Railmate</a></li>
+                <li id="navbarItem"><a href="../">Railmate</a></li>
                 <li id="navbarItem"><a href="https://forms.gle/REdRBXETtcihFAa46">Feedback</a></li>
                 <li id="navbarItem"><a href="https://twitter.com/Railmate_">Contact</a></li>
-                <li id="navbarItem"><a href=".">Web live</a></li> 
+                <li id="navbarItem"><a href=".">Web live</a></li>
             </ul>
         </nav>
     </header>
@@ -36,17 +40,16 @@
             <script>
             flatpickr("#date");
             </script> -->
-            
 
 
             <ul id="stations">
-    
+
             </ul>
 
             <p id="errorMessage"></p>
         </div>
-        
-        <table style="width:100%" >
+
+        <table style="width:100%" id="table">
             <tbody id="deptableheadings">
                 <tr>
                     <th>Des</th>
@@ -56,14 +59,33 @@
                 </tr>
             </tbody>
             <tbody id="deptable">
-                
-            </tbody>
-            
-            
 
+            </tbody>
         </table>
+
+        <div class="routeInfo">
+            <div class="backRouteButton">
+                <button id="back" style="visibility: collapse;">Back to depatures</button>
+            </div>
+        </div>
+        
+
+        <div id="route">
+            <!-- <div>
+                <div class="nameTime">
+                    <p id="name">London Kings Cross</p>
+                    <p id="time">00:14</p>
+                </div>
+                <div class="platStat">
+                    <p id="plat">Plat : 3</p>
+                    <p id="stat">STARTS HERE</p>
+                </div>
+            </div> -->
+        </div>
+
     </main>
 
     <script src="live.js"></script>
 </body>
+
 </html>
