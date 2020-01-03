@@ -8,9 +8,10 @@ const errorMessage = document.querySelector('#errorMessage');
 const route = document.querySelector('#route');
 const back = document.querySelector('#back');
 const table = document.querySelector('#table');
+let searchedStation = "";
 
 
-const API_URL = 'http://api.railmate.net';
+const API_URL = 'http://localhost:3060';
 
 let staionData = [];
 
@@ -62,6 +63,7 @@ function addToStations (Station_Name, CRS_Code) {
         getLiveDep(event.srcElement.attributes[1].value);
         stations.innerHTML = "";
         stationSearch.value = Station_Name;
+        searchedStation = CRS_Code;
         
     });
     // li.setAttribute("value", CRS_Code);
@@ -141,7 +143,7 @@ function getTrainRoute(url) {
         table.style.display = "none";
         back.style.visibility = "visible";
         for (let i = 0; i < data.stops.length; i++) {
-            addRouteToPage(data.stops[i].station_name, data.stops[i].platform, data.stops[i].aimed_arrival_time, data.stops[i].status);
+            addRouteToPage(data.stops[i].station_name, data.stops[i].platform, data.stops[i].aimed_arrival_time, data.stops[i].status, data.stops[i].station_code);
         }
     })
     .catch((err) => {
@@ -149,10 +151,13 @@ function getTrainRoute(url) {
 });
 }
 
-function addRouteToPage(stationName, Platform, DepTime, Status) {
+function addRouteToPage(stationName, Platform, DepTime, Status, CRS_Code) {
 
     if (Platform == null) {
         Platform = "TBC";
+    }
+    if (Status == null) {
+        Status = ""
     }
 
     let name = document.createElement("p");
@@ -186,11 +191,17 @@ function addRouteToPage(stationName, Platform, DepTime, Status) {
     
     let div = document.createElement("div");
     div.setAttribute("class", "routeElement");
+    
+    
 
     div.appendChild(nameTime);
     div.appendChild(platstat);
 
     route.appendChild(div);
 
-
+    if (CRS_Code == searchedStation) {
+        console.log("match");
+        
+        div.style.backgroundColor = "#bfffd0";
+    }
 }
