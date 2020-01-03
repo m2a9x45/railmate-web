@@ -10,7 +10,7 @@ const back = document.querySelector('#back');
 const table = document.querySelector('#table');
 
 
-const API_URL = 'http://localhost:3060';
+const API_URL = 'http://api.railmate.net';
 
 let staionData = [];
 
