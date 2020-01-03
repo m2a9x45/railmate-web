@@ -7,7 +7,7 @@ const stations = document.querySelector('#stations');
 const errorMessage = document.querySelector('#errorMessage');
 const route = document.querySelector('#route');
 const back = document.querySelector('#back');
-
+const table = document.querySelector('#table');
 
 const API_URL = 'http://api.railmate.net';
 
@@ -29,6 +29,7 @@ back.addEventListener("click", () => {
     route.innerHTML = "";
     deptableheadings.style.visibility = "visible";
     deptable.style.visibility = "visible";
+    table.style.visibility = "visible"
     back.style.visibility = "collapse";
 })
 
@@ -136,6 +137,7 @@ function getTrainRoute(url) {
         console.log(data);
         deptableheadings.style.visibility = "collapse";
         deptable.style.visibility = "collapse";
+        table.style.visibility = "collapse"
         back.style.visibility = "visible";
         for (let i = 0; i < data.stops.length; i++) {
             addRouteToPage(data.stops[i].station_name, data.stops[i].platform, data.stops[i].aimed_arrival_time, data.stops[i].status);
