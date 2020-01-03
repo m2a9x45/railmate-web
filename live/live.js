@@ -102,13 +102,9 @@ function addToTable (Des,Platform, Operator, DepTime, url){
     tr.setAttribute("value", url);
     tr.addEventListener("click", (e) => {
         console.log(e);
+        console.log(e.composedPath());
         console.log(e.path[1].attributes[0].value);
         getTrainRoute(e.path[1].attributes[0].value);
-    })
-    tr.addEventListener("touchstart", (e) => {
-        console.log(e.composedPath());
-        
-        console.log(e.composedPath()[1].value);
         
     })
 
