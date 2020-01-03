@@ -11,7 +11,7 @@ const table = document.querySelector('#table');
 let searchedStation = "";
 
 
-const API_URL = 'http://localhost:3060';
+const API_URL = 'http://api.railmate.net';
 
 let staionData = [];
 
