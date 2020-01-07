@@ -8,10 +8,12 @@ const errorMessage = document.querySelector('#errorMessage');
 const route = document.querySelector('#route');
 const back = document.querySelector('#back');
 const table = document.querySelector('#table');
+const trainLogo = document.querySelector('#trainLogo');
+
 let searchedStation = "";
 
 
-const API_URL = 'http://api.railmate.net';
+const API_URL = 'http://localhost:3060';
 
 let staionData = [];
 
@@ -29,6 +31,7 @@ stationSearch.addEventListener("input", () => {
 
 back.addEventListener("click", () => {
     route.innerHTML = "";
+    trainLogo.src = "";
     // deptableheadings.style.visibility = "visible";
     // deptable.style.visibility = "visible";
     table.style.display = "table";
@@ -138,6 +141,7 @@ function getTrainRoute(url) {
     .then(response => response.json())
     .then((data) => {
         console.log(data);
+        getlogo(data.operator);
         // deptableheadings.style.visibility = "collapse";
         // deptable.style.visibility = "collapse";
         table.style.display = "none";
@@ -204,4 +208,20 @@ function addRouteToPage(stationName, Platform, DepTime, Status, CRS_Code) {
         
         div.style.backgroundColor = "#bfffd0";
     }
+}
+
+
+function getlogo(operator_code){
+    fetch(`${API_URL}/app/operator/${operator_code}/false`)
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        if (!data.message) {
+            trainLogo.src = data.img_url;
+        }
+        
+    })
+    .catch((err) => {
+        console.log(err); 
+    });  
 }
