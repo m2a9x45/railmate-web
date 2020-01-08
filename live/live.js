@@ -13,7 +13,7 @@ const trainLogo = document.querySelector('#trainLogo');
 let searchedStation = "";
 
 
-const API_URL = 'http://localhost:3060';
+const API_URL = 'http://api.railmate.net';
 
 let staionData = [];
 
