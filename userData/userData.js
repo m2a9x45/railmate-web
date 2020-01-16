@@ -1,5 +1,20 @@
 const submitButton = document.querySelector('#submitButton');
-const API_URL = "http://api.railmate.net";
+
+let API_URL = "";
+let env = "";
+
+fetch('../env')
+  .then(response => response.text())
+  .then((res) => {
+    env = res
+    fetch('../env.json')
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data[`${env}`])
+            API_URL = data[`${env}`]
+  })
+})
+
 
 submitButton.addEventListener("click",() => {
     event.preventDefault()
@@ -38,7 +53,7 @@ function sendData(data){
         if (data.error != true) {
             console.log("Everthing worked");
             showError(data.message, "green");
-            setTimeout(() => {window.location = "railmate.net";}, 3500)
+            setTimeout(() => {window.location = "../";}, 3500)
         } else {
             console.log("oops something went wrong");
             console.log(data);

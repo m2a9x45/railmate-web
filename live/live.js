@@ -8,10 +8,25 @@ const errorMessage = document.querySelector('#errorMessage');
 const route = document.querySelector('#route');
 const back = document.querySelector('#back');
 const table = document.querySelector('#table');
+const trainLogo = document.querySelector('#trainLogo');
+
 let searchedStation = "";
 
+let API_URL = "";
+let env = "";
 
-const API_URL = 'http://api.railmate.net';
+fetch('../env')
+  .then(response => response.text())
+  .then((res) => {
+    env = res;
+    fetch('../env.json')
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data[env]);
+            API_URL = data[env];
+            loadStationsList();
+  })
+})
 
 let staionData = [];
 
@@ -29,13 +44,15 @@ stationSearch.addEventListener("input", () => {
 
 back.addEventListener("click", () => {
     route.innerHTML = "";
+    trainLogo.src = "";
     // deptableheadings.style.visibility = "visible";
     // deptable.style.visibility = "visible";
     table.style.display = "table";
     back.style.visibility = "collapse";
 })
 
-fetch(`${API_URL}/app/stations`)
+function loadStationsList(){
+    fetch(`${API_URL}/app/stations`)
     .then(response => response.json())
     .then((data) => {
         console.log(data);
@@ -49,6 +66,10 @@ fetch(`${API_URL}/app/stations`)
     .catch((err) => {
         console.log(err); 
 });
+}
+
+
+
 
 function addToStations (Station_Name, CRS_Code) {
     let li = document.createElement("li");
@@ -138,6 +159,7 @@ function getTrainRoute(url) {
     .then(response => response.json())
     .then((data) => {
         console.log(data);
+        getlogo(data.operator);
         // deptableheadings.style.visibility = "collapse";
         // deptable.style.visibility = "collapse";
         table.style.display = "none";
@@ -204,4 +226,20 @@ function addRouteToPage(stationName, Platform, DepTime, Status, CRS_Code) {
         
         div.style.backgroundColor = "#bfffd0";
     }
+}
+
+
+function getlogo(operator_code){
+    fetch(`${API_URL}/app/operator/${operator_code}/false`)
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        if (!data.message) {
+            trainLogo.src = data.img_url;
+        }
+        
+    })
+    .catch((err) => {
+        console.log(err); 
+    });  
 }

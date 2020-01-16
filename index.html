@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156377585-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-156377585-1');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <meta property="og:title" content="Railmate" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Train travel made simple. Use Railmate to find trains leaving from all UK railway stations.">
+    <meta property="og:url" content="http://railmate.net" />
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Train_Austria.svg/768px-Train_Austria.svg.png" />
+
+    <meta name="description" content="Train travel made simple. Use Railmate to find trains leaving from all UK railway stations.">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
@@ -70,7 +87,7 @@
             </div>  
         </div>
 
-        <div class="content">
+        <!-- <div class="content">
             <h2 id="formheader">Get it on Android</h2>
             <h3 id="formtitle">Help us build the type of app you'd want to use 🙌</h3>
             <form>
@@ -81,12 +98,12 @@
                 <p id="errorText"></p>
                 <a href="./ios/">What about ios ?</a>
             </form>
-        </div>
+        </div> -->
     </main>
     <footer>
         <a id="contact" href="./legal/T&C'S/">Terms and conditions</a>
         <a id="contact" href="./legal/PrivacyPolicy/">Privacy policy</a>
-        <a id="contact" href="https://twitter.com/Railmate_">Contact us</a>
+        <a id="contact" href="https://twitter.com/Railmate_">Contact</a>
         <a id="contact" href="./userData/">Data</a>    
     </footer>
     <script src="main.js"></script>
