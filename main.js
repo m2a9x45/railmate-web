@@ -4,8 +4,6 @@ const webButton = document.querySelector('#webButton');
 const moreButton = document.querySelectorAll('#moreButton');
 const errorText = document.querySelector('#errorText');
 
-//https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling
-//https://stackoverflow.com/questions/9860630/javascript-smooth-scroll-ipad
 let API_URL = "";
 let env = "";
 
@@ -21,39 +19,10 @@ fetch('env')
   })
 })
 
-// moreButton.forEach(button => {
-//     button.addEventListener('click', () => {
-//         window.location.href = "http://localhost/dev/railmate/learnmore";
-//     })
-// });
-
 webButton.addEventListener("click", () => {
     window.location.href = "./live"
 })
 
-submitButton.addEventListener("click",() => {
-    event.preventDefault()
-    
-//     const name = document.querySelector('#name').value;
-//     const email = document.querySelector('#email').value;
-//     // const os = document.querySelector('input[name="os"]:checked').value;
-
-//     const data = {
-//         "name" : name,
-//         "email": email,
-//         "os": "android"
-//     }
-    
-
-//     if (name == "" || email == "") {
-//         showError("Oops 😔 You need to enter your name and email address");
-//     } else {
-//         console.log(data);
-//         sendData(data); 
-//     }
-
-    
-// });
 
 getButton.addEventListener('click', () => {
     // submitButton.scrollIntoView({block: 'start', behavior: 'smooth'});
