@@ -22,8 +22,8 @@ fetch('../env')
     fetch('../env.json')
         .then(response => response.json())
         .then((data) => {
-            console.log(data[`${env}`]);
-            API_URL = data[`${env}`];
+            console.log(data[env]);
+            API_URL = data[env];
             loadStationsList();
   })
 })
