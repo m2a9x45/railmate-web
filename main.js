@@ -31,8 +31,8 @@ webButton.addEventListener("click", () => {
     window.location.href = "./live"
 })
 
-// submitButton.addEventListener("click",() => {
-//     event.preventDefault()
+submitButton.addEventListener("click",() => {
+    event.preventDefault()
     
 //     const name = document.querySelector('#name').value;
 //     const email = document.querySelector('#email').value;

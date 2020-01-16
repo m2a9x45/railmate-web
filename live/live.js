@@ -70,6 +70,7 @@ function loadStationsList(){
 
 
 
+
 function addToStations (Station_Name, CRS_Code) {
     let li = document.createElement("li");
     let a = document.createElement("a");
