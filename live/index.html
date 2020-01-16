@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156377585-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-156377585-1');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -23,12 +33,29 @@
                 <li id="navbarItem"><a href="../">Railmate</a></li>
                 <li id="navbarItem"><a href="https://forms.gle/REdRBXETtcihFAa46">Feedback</a></li>
                 <li id="navbarItem"><a href="https://twitter.com/Railmate_">Contact</a></li>
-                <li id="navbarItem"><a href=".">Web live</a></li>
+                <li id="navbarItem"><a href=".">Web</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div class="content">
+            <br>
+            <br>
+            <div class="routeInfo">
+                <div class="grid-container">
+                    <div class="grid-itemImg"><img src="http://api.railmate.net/newImg/ScotRail.jpg" alt="" id="trainLogo"></div>
+                    <div class="grid-itemTxt">
+                        <p>Orgin name to Des name</p>
+                        <p>arriving at 17:50</p>
+                    </div>
+                </div>
+            </div>
+            <div class="backRouteButton">
+                <button id="back" style="visibility: collapse;">Back to depatures</button>
+            </div>
+
+
+
             <div id="search">
                 <input type="text" id="stationSearch" placeholder="Search for a station">
             </div>
@@ -64,13 +91,18 @@
         </table>
 
         <div class="routeInfo">
-            <img src="" alt="" id="trainLogo">
-            <div class="backRouteButton">
-                <button id="back" style="visibility: collapse;">Back to depatures</button>
+            <div class="routeImg">
+                <img src="" alt="" id="trainLogo">
             </div>
             
+            <div class="routeText">
+                <p>Orgin name to Des name</p>
+                <p>arriving at 17:50</p>
+            </div>
         </div>
-        
+        <div class="backRouteButton">
+            <button id="back" style="visibility: collapse;">Back to depatures</button>
+        </div>
 
         <div id="route">
             <!-- <div>

@@ -227,9 +227,9 @@ nav ul li:first-child {
 
 footer {
     background-color: #4f1717;
-    padding: 2% 0 2% 0;
+    padding: 1em;
     text-align: center;
-    font-size: 16pt;
+    font-size: 14pt;
 }
 
 footer a {

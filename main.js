@@ -6,7 +6,20 @@ const errorText = document.querySelector('#errorText');
 
 //https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling
 //https://stackoverflow.com/questions/9860630/javascript-smooth-scroll-ipad
-const API_URL = "http://api.railmate.net";
+let API_URL = "";
+let env = "";
+
+fetch('env')
+  .then(response => response.text())
+  .then((res) => {
+    env = res
+    fetch('env.json')
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data[`${env}`])
+            API_URL = data[`${env}`]
+  })
+})
 
 // moreButton.forEach(button => {
 //     button.addEventListener('click', () => {
@@ -18,32 +31,33 @@ webButton.addEventListener("click", () => {
     window.location.href = "./live"
 })
 
-submitButton.addEventListener("click",() => {
-    event.preventDefault()
+// submitButton.addEventListener("click",() => {
+//     event.preventDefault()
     
-    const name = document.querySelector('#name').value;
-    const email = document.querySelector('#email').value;
-    // const os = document.querySelector('input[name="os"]:checked').value;
+//     const name = document.querySelector('#name').value;
+//     const email = document.querySelector('#email').value;
+//     // const os = document.querySelector('input[name="os"]:checked').value;
 
-    const data = {
-        "name" : name,
-        "email": email,
-        "os": "android"
-    }
+//     const data = {
+//         "name" : name,
+//         "email": email,
+//         "os": "android"
+//     }
     
 
-    if (name == "" || email == "") {
-        showError("Oops 😔 You need to enter your name and email address");
-    } else {
-        console.log(data);
-        sendData(data); 
-    }
+//     if (name == "" || email == "") {
+//         showError("Oops 😔 You need to enter your name and email address");
+//     } else {
+//         console.log(data);
+//         sendData(data); 
+//     }
 
     
-});
+// });
 
 getButton.addEventListener('click', () => {
-    submitButton.scrollIntoView({block: 'start', behavior: 'smooth'});
+    // submitButton.scrollIntoView({block: 'start', behavior: 'smooth'});
+    window.location.href = "./download";
 });
 
 function sendData(data){

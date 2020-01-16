@@ -12,8 +12,21 @@ const trainLogo = document.querySelector('#trainLogo');
 
 let searchedStation = "";
 
+let API_URL = "";
+let env = "";
 
-const API_URL = 'http://api.railmate.net';
+fetch('../env')
+  .then(response => response.text())
+  .then((res) => {
+    env = res;
+    fetch('../env.json')
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data[`${env}`]);
+            API_URL = data[`${env}`];
+            loadStationsList();
+  })
+})
 
 let staionData = [];
 
@@ -38,7 +51,8 @@ back.addEventListener("click", () => {
     back.style.visibility = "collapse";
 })
 
-fetch(`${API_URL}/app/stations`)
+function loadStationsList(){
+    fetch(`${API_URL}/app/stations`)
     .then(response => response.json())
     .then((data) => {
         console.log(data);
@@ -52,6 +66,9 @@ fetch(`${API_URL}/app/stations`)
     .catch((err) => {
         console.log(err); 
 });
+}
+
+
 
 function addToStations (Station_Name, CRS_Code) {
     let li = document.createElement("li");
